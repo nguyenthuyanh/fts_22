@@ -1,0 +1,30 @@
+<% provide(:title, "Start new test") %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h1>
+      <%= @subject.content %>
+    </h1>
+    <div class="countdown">
+      Time left: <span id="clock"></span>
+    </div>
+    <div class="exam">
+      <%= form_for @exam do |f| %>
+        <%= render partial: 'form', locals: {:f=>f} %>
+        <%= f.submit "Submit", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#clock').countdown("<%= @end %>").on('update.countdown', function(event) {
+    var $this = $(this).html(event.strftime(''
+      + '<span>%M</span> min '
+      + '<span>%S</span> sec'));
+    }).on('finish.countdown', function(event) {
+    $(document).ready(function(){
+      $("#edit_examination_<%= @exam.id %>").submit();
+    }); 
+  });
+</script>
+

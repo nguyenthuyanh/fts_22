@@ -17,19 +17,19 @@ ActiveRecord::Schema.define(version: 20150318040416) do
     t.integer  "examination_id", limit: 4
     t.integer  "question_id",    limit: 4
     t.integer  "answer_id",      limit: 4
-    t.boolean  "correct",        limit: 1
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
+    t.boolean  "correct",        limit: 1, default: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
   end
 
   add_index "answer_sheets", ["examination_id"], name: "index_answer_sheets_on_examination_id", using: :btree
 
   create_table "answers", force: :cascade do |t|
-    t.integer  "content",     limit: 4
+    t.string   "content",     limit: 255
     t.integer  "question_id", limit: 4
-    t.boolean  "correct",     limit: 1
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.boolean  "correct",     limit: 1,   default: false
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
   end
 
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20150318040416) do
   create_table "examinations", force: :cascade do |t|
     t.integer  "subject_id",     limit: 4
     t.integer  "number_correct", limit: 4
+    t.integer  "user_id",        limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end

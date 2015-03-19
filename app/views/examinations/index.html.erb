@@ -1,0 +1,30 @@
+<% provide(:title, 'All examinations') %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="examinations">      
+      <section>
+        <%= form_for @exam do |f| %>
+          <%= select_tag :subject_id, options_from_collection_for_select(Subject.all, :id, :content), {prompt: "Select a subject"} %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.submit "Start", class: "btn btn-primary" %>
+        <% end %>
+      </section>
+        <table class="table table-hover">
+          <tr>
+            <th>Date</th>
+            <th>Subject</th>
+            <th>Score</th>
+            <th></th>
+          </tr>
+          <% @examinations.each do |exam| %>
+            <tr>
+              <td width="35%"><%= exam.created_at.strftime("%A, %d %B %Y at %I:%M%p") %></td>
+              <td width="25%"><%= exam.subject.content %></td>
+              <td width="25%"><%= exam.number_correct %></td>
+              <td width="15%"><%= link_to "View", examination_path(exam) %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>        
+    </div>
+  </div>

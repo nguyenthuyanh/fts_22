@@ -1,0 +1,15 @@
+<span><% i=0 %>
+<%= f.fields_for :answer_sheets do |builder| %>
+  <p>
+    <%= i=i+1 %>
+    <%= builder.object.question.content %>
+  </p>
+  <% builder.object.question.answers.shuffle.each do |answer| %>
+    <p>
+      <%= builder.radio_button :answer_id, answer.id %>
+      <%= builder.label :answer_id, answer.content %>
+    </p> 
+  <% end %>
+  <br/>
+<% end %>
+</span>
