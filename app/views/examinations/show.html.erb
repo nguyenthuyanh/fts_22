@@ -1,0 +1,31 @@
+<% provide(:title, "Answers Sheet") %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <h3>
+      <%= @subject.content %>
+      <%= @exam.number_correct %>/20
+    </h3>
+    <div class="exam">
+      <%= form_for @exam do |f| %>
+        <span><% i=0 %>
+          <%= f.fields_for :answer_sheets do |answer_sheet| %>
+            <p>
+              <%= i=i+1 %>
+              <%= answer_sheet.object.question.content %>
+            </p>
+            <% answer_sheet.object.question.answers.each do |answer| %>
+              <p>
+                <%= answer_sheet.radio_button :answer_id, answer.id, disabled: true %>
+                <%= answer_sheet.label :answer_id, answer.content %>
+              </p> 
+            <% end %>
+            <% if answer_sheet.object.correct %>
+              <p class="correct">Correct!</p>
+            <% end %>
+            <br/>
+          <% end %>
+        </span>
+      <% end %>
+    </div>
+  </div>
+</div>

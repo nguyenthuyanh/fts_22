@@ -158,29 +158,6 @@ aside {
   margin-top: 15px;
 }
 
-.stats {
-  overflow: auto;
-  margin-top: 0;
-  padding: 0;
-  span {
-    float: left;
-    padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
-    color: gray;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
-    }
-    &:hover {
-      text-decoration: none;
-      color: blue;
-    }
-  }
-  strong {
-    display: block;
-  }
-}
-
 .user_avatars {
   overflow: auto;
   margin-top: 10px;
@@ -190,10 +167,6 @@ aside {
   a {
     padding: 0;
   }
-}
-
-.users.follow {
-  padding: 0;
 }
 
 /* forms */
@@ -238,93 +211,33 @@ input {
   margin-left: 0;
 }
 
-/* Users index */
+/* examinations */
 
-.users {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-bottom: 1px solid $gray-lighter;
-  }
-}
-
-/* Categories index */
-
-.categoriesindex {
-  list-style: none;
-  margin: 0;
-  li {
-    overflow: auto;
-    padding: 10px 0;
-    border-top: 1px solid $gray-lighter;
-    margin-top: 60px;
-  }
-  .title {
-    font-size: 2em;
-    letter-spacing: -2px;
-    margin-bottom: 40px;
-    text-align: left;
-  }
-  .intro {
-    display: block;
-    margin-bottom: 20px;
-  }
-}
-
-/* entries */
-
-.entries {
+.examinations {
   list-style: none;
   padding: 0;
-  li {
+  section {
+    padding: 0 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 50%;
+    input {
+      width: 100px;
+    }
+  }
+  table {
     overflow: auto;
-    padding: 10px 0;
-    border-top: 10px solid #e8e8e8;
+    tr {
+      height: 80px;
+      th, td {
+        vertical-align:middle;
+      }
+    }
   }
   h1 {
     font-size: 2em;
     letter-spacing: -2px;
     margin-bottom: 30px;
-    text-align: left;
-  }
-  .user {
-    margin-top: 5em;
-    padding-top: 10px 0;
-  }
-  .title {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
-  }
-  .content {
-    display: block;
-    margin-left: 60px;
-    img {
-      display: block;
-      padding: 5px 0;
-    }
-  }
-  .timestamp {
-    color: $gray-light;
-    display: block;
-    margin-left: 60px;
-  }
-  .gravatar {
-    float: left;
-    margin-right: 10px;
-    margin-top: 5px;
-  }
-}
-
-aside {
-  textarea {
-    height: 100px;
-    margin-bottom: 5px;
   }
 }
 
@@ -335,45 +248,36 @@ span.picture {
   }
 }
 
-.button {
+.exam {
   overflow: auto;
   margin-top: 50px;
-  padding: 0;
+  padding-top: 20px;
   span {
+    padding: 0 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
     float: left;
     padding: 0 10px;
-    border-left: 1px solid $gray-lighter;
-    color: gray;
-    width: 50%;
-    &:first-child {
-      padding-left: 0;
-      border: 0;
+    width: 100%;
+    input {
+      width: 10px;
+      margin-left: 10px;
+    }
+    label {
+      font-weight: normal;
+    }
+    p {
+      font-weight: bold;
+    }
+    p.correct {
+      color: #33CC33;
     }
   }
 }
 
-.lesson {
-  overflow: auto;
-  margin-top: 50px;
-  padding-top: 20px;
-  section {
-    padding: 0 0;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    button {
-      width: 100%;
-    }
-    span {
-      float: left;
-      padding: 0 10px;
-      width: 50%;
-      input {
-        width: 10%;
-      }
-      a {
-        margin-bottom: 20px;
-        width: 100%;
-      }
-    }
-  }
+div.countdown {
+  float: right;
+  position:fixed;
+  top:65px;
+  right:10%;
 }

@@ -4,7 +4,7 @@ class CreateAnswerSheets < ActiveRecord::Migration
       t.integer :examination_id
       t.integer :question_id
       t.integer :answer_id
-      t.boolean :correct
+      t.boolean :correct, default: false
 
       t.timestamps null: false
     end
