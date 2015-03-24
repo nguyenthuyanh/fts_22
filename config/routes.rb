@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :users
   resources :examinations
 
+  namespace :admin do
+    root                'static_pages#home'
+  end
+
 end
